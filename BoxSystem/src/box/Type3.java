@@ -10,17 +10,19 @@ package box;
  * @author up878976
  */
 public class Type3 extends Box{
-    private final float twoColours = 1.15f;
+    protected final float twoColoursPrice = 1.15f;
     private final String name = "Type 3";
+    protected boolean twoColours;
     
-    public Type3(float height, float width, float depth, boolean sealableTop, int grade) {
+    public Type3(float height, float width, float depth, boolean sealableTop, int grade, boolean twoColours) {
         super(height, width, depth, sealableTop, grade);
-        this.grade = grade;
+        this.twoColours = twoColours;
     }
 
     @Override
     protected float calculatePrice() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        price += super.calculateSurfaceArea()* super.gradePrice[grade-1] * ((boolean)twoColours?twoColoursPrice:1);
+        return price;
     }
 
     @Override

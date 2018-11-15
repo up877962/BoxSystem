@@ -9,20 +9,21 @@ package box;
  *
  * @author up878976
  */
-public class Type4 extends Box{
-    private final float twoColours = 1.15f;
-    private final float reinforcedB = 1.13f;
+public class Type4 extends Type3{
+    protected final float reinforcedBPrice = 1.13f;
     private final String name = "Type 4";
+    protected boolean bottomReinforced;
     
-    public Type4(float height, float width, float depth, boolean sealableTop, int grade) {
-        super(height, width, depth, sealableTop,grade);
-        this.grade = grade;
+    public Type4(float height, float width, float depth, boolean sealableTop, int grade, boolean twoColours, boolean bottomReinforced) {
+        super(height, width, depth, sealableTop,grade, twoColours);
+        this.bottomReinforced = bottomReinforced;
     }
 
 
     @Override
     protected float calculatePrice() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        price += super.calculatePrice() * ((boolean)bottomReinforced? reinforcedBPrice: 1);
+        return price;
     }
 
     @Override

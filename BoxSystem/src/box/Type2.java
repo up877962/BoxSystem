@@ -11,16 +11,18 @@ package box;
  * @author up878976
  */
 public class Type2 extends Box{
-    private final float oneColour = 1.12f;
+    private final float oneColourPrice = 1.12f;
     private final String name = "Type 2";
+    private boolean oneColour;
     
-    public Type2(float height, float width, float depth, boolean sealableTop, int grade) {
+    public Type2(float height, float width, float depth, boolean sealableTop, int grade, boolean oneColour) {
         super(height, width, depth, sealableTop, grade);
+        this.oneColour = oneColour;
     }
 
     @Override
     protected float calculatePrice() {
-        price += super.calculateSurfaceArea()* super.gradePrice[grade-1] * oneColour;
+        price += super.calculateSurfaceArea()* super.gradePrice[grade-1] * oneColourPrice;
         return price;
     }
 

@@ -26,6 +26,9 @@ public abstract class Box {
    protected String getName(){
        return name;
    }
+   protected float getPrice(){
+       return price;
+   }
    protected float calculateSurfaceArea(){
       return (float)2*height*width + 2*width*depth + 2*depth*height;
    }   

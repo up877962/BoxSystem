@@ -16,18 +16,18 @@ public class BoxSystem {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Type1 box1 = new Type1(2f, 3f, 4f, false, 1);
-        float thing = box1.calculateSurfaceArea();
-        System.out.println(thing);
-        float price = box1.calculatePrice();
-        System.out.println(price);
+//        Type1 box1 = new Type1(2f, 3f, 4f, false, 1);
+//        float thing = box1.calculateSurfaceArea();
+//        System.out.println(thing);
+//        float price = box1.calculatePrice();
+//        System.out.println(price);
+//        
+//        Type5 box2 = new Type5(2f, 3f, 4f, false, 3, true, true, true);
+//        float blah = box2.calculateSurfaceArea();
+//        System.out.println(blah);
+//        float pricee = box2.calculatePrice();
+//        System.out.println(pricee);
         
-        Type5 box2 = new Type5(2f, 3f, 4f, false, 3, true, true, true);
-        float blah = box2.calculateSurfaceArea();
-        System.out.println(blah);
-        float pricee = box2.calculatePrice();
-        System.out.println(pricee);
-    
     }
     
 }
