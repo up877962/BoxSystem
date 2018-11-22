@@ -29,6 +29,7 @@ public class GUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDialogTypeErr = new javax.swing.JDialog();
         lblDimensions = new javax.swing.JLabel();
         txtHeight = new javax.swing.JTextField();
         lblHeight = new javax.swing.JLabel();
@@ -51,11 +52,30 @@ public class GUI extends javax.swing.JFrame {
         btnATC = new javax.swing.JButton();
         btnCheckout = new javax.swing.JButton();
 
+        jDialogTypeErr.setTitle("Error");
+
+        javax.swing.GroupLayout jDialogTypeErrLayout = new javax.swing.GroupLayout(jDialogTypeErr.getContentPane());
+        jDialogTypeErr.getContentPane().setLayout(jDialogTypeErrLayout);
+        jDialogTypeErrLayout.setHorizontalGroup(
+            jDialogTypeErrLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialogTypeErrLayout.setVerticalGroup(
+            jDialogTypeErrLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Box System");
 
         lblDimensions.setText("Dimensions (m)");
 
         txtHeight.setText("0.0");
+        txtHeight.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtHeightFocusLost(evt);
+            }
+        });
 
         lblHeight.setText("Height");
 
@@ -64,8 +84,18 @@ public class GUI extends javax.swing.JFrame {
         lblDepth.setText("Depth");
 
         txtWidth.setText("0.0");
+        txtWidth.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtWidthFocusLost(evt);
+            }
+        });
 
         txtDepth.setText("0.0");
+        txtDepth.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtDepthFocusLost(evt);
+            }
+        });
 
         lblGrade.setText("Grade");
 
@@ -110,8 +140,18 @@ public class GUI extends javax.swing.JFrame {
         lblQuantity.setText("Quantity");
 
         txtQuantity.setText("0");
+        txtQuantity.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtQuantityFocusLost(evt);
+            }
+        });
 
         btnATC.setText("Add to Cart");
+        btnATC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnATCActionPerformed(evt);
+            }
+        });
 
         btnCheckout.setText("Checkout");
 
@@ -235,6 +275,40 @@ public class GUI extends javax.swing.JFrame {
         toggleYesNo(tbtnSealable);
     }//GEN-LAST:event_tbtnSealableActionPerformed
 
+    private void btnATCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnATCActionPerformed
+        
+        
+        
+    }//GEN-LAST:event_btnATCActionPerformed
+
+    private void txtHeightFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtHeightFocusLost
+        checkDataType(txtHeight);
+    }//GEN-LAST:event_txtHeightFocusLost
+
+    private void txtWidthFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtWidthFocusLost
+        checkDataType(txtWidth);
+    }//GEN-LAST:event_txtWidthFocusLost
+
+    private void txtDepthFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDepthFocusLost
+        checkDataType(txtDepth);
+    }//GEN-LAST:event_txtDepthFocusLost
+
+    private void txtQuantityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtQuantityFocusLost
+        checkDataType(txtQuantity);
+    }//GEN-LAST:event_txtQuantityFocusLost
+
+    private void checkDataType(javax.swing.JTextField txtBox){
+        try{
+            Float.parseFloat(txtBox.getText());
+            
+        }
+        catch(NumberFormatException err){
+//            javax.swing.JDialog error = new javax.swing.JDialog(Frame GUI, String "Error", boolean false);
+            System.out.println("skfh");
+            //Dialog box needed
+          
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -275,6 +349,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton btnCheckout;
     private javax.swing.JComboBox<String> cmbColours;
     private javax.swing.JComboBox<String> cmbGrade;
+    private javax.swing.JDialog jDialogTypeErr;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblColours;
     private javax.swing.JLabel lblDepth;
