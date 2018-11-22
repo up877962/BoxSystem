@@ -27,7 +27,8 @@ public class BoxSystem {
 //        System.out.println(blah);
 //        float pricee = box2.calculatePrice();
 //        System.out.println(pricee);
-        
+          Order order = new Order(10, 4, 2f, 4f, 5f, true, true,true );
+          System.out.println(order);
     }
     
 }
