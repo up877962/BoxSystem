@@ -5,6 +5,7 @@
  */
 package box;
 
+import java.awt.Dimension;
 import java.awt.event.ItemListener;
 
 /**
@@ -30,6 +31,9 @@ public class GUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jDialogTypeErr = new javax.swing.JDialog();
+        lblTitle = new javax.swing.JLabel();
+        lblErrorMessage = new javax.swing.JLabel();
+        btnOk = new javax.swing.JButton();
         lblDimensions = new javax.swing.JLabel();
         txtHeight = new javax.swing.JTextField();
         lblHeight = new javax.swing.JLabel();
@@ -54,15 +58,43 @@ public class GUI extends javax.swing.JFrame {
 
         jDialogTypeErr.setTitle("Error");
 
+        lblTitle.setText("Error");
+
+        lblErrorMessage.setText("jLabel2");
+
+        btnOk.setText("Ok");
+        btnOk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOkActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jDialogTypeErrLayout = new javax.swing.GroupLayout(jDialogTypeErr.getContentPane());
         jDialogTypeErr.getContentPane().setLayout(jDialogTypeErrLayout);
         jDialogTypeErrLayout.setHorizontalGroup(
             jDialogTypeErrLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(jDialogTypeErrLayout.createSequentialGroup()
+                .addGroup(jDialogTypeErrLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDialogTypeErrLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jDialogTypeErrLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblTitle)
+                            .addComponent(lblErrorMessage)))
+                    .addGroup(jDialogTypeErrLayout.createSequentialGroup()
+                        .addGap(62, 62, 62)
+                        .addComponent(btnOk)))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
         jDialogTypeErrLayout.setVerticalGroup(
             jDialogTypeErrLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(jDialogTypeErrLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblTitle)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblErrorMessage)
+                .addGap(18, 18, 18)
+                .addComponent(btnOk)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -276,11 +308,19 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_tbtnSealableActionPerformed
 
     private void btnATCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnATCActionPerformed
-        
+        int grade = Integer.parseInt(cmbGrade.getSelectedItem().toString());
+        int colours = Integer.parseInt(cmbColours.getSelectedItem().toString());
+        boolean reinforcedBottom = tbtnReBo.getText() == "No" ? false : true;
+        boolean reinforcedCorner = tbtnReCo.getText() == "No" ? false : true;
+        boolean sealableTop = tbtnSealable.getText() == "No" ? true : false;
+        int quantity = Integer.parseInt(txtQuantity.getText());
+        float height = Float.parseFloat(txtHeight.getText());
+        float depth = Float.parseFloat(txtDepth.getText());
+        float width = Float.parseFloat(txtWidth.getText());
         
         
     }//GEN-LAST:event_btnATCActionPerformed
-
+    
     private void txtHeightFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtHeightFocusLost
         checkDataType(txtHeight);
     }//GEN-LAST:event_txtHeightFocusLost
@@ -297,6 +337,10 @@ public class GUI extends javax.swing.JFrame {
         checkDataType(txtQuantity);
     }//GEN-LAST:event_txtQuantityFocusLost
 
+    private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
+        jDialogTypeErr.dispose();
+    }//GEN-LAST:event_btnOkActionPerformed
+
     private void checkDataType(javax.swing.JTextField txtBox){
         try{
             Float.parseFloat(txtBox.getText());
@@ -305,7 +349,14 @@ public class GUI extends javax.swing.JFrame {
         catch(NumberFormatException err){
 //            javax.swing.JDialog error = new javax.swing.JDialog(Frame GUI, String "Error", boolean false);
             System.out.println("skfh");
-            //Dialog box needed
+            jDialogTypeErr.setVisible(true);
+            jDialogTypeErr.setEnabled(true);
+            jDialogTypeErr.setResizable(false);
+            lblErrorMessage.setText("Invalid type, please enter a number");
+            lblTitle.setText("Error: " + "NumberFormatException");
+            jDialogTypeErr.setSize(300, 200);
+            
+            
           
         }
     }
@@ -347,6 +398,7 @@ public class GUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnATC;
     private javax.swing.JButton btnCheckout;
+    private javax.swing.JButton btnOk;
     private javax.swing.JComboBox<String> cmbColours;
     private javax.swing.JComboBox<String> cmbGrade;
     private javax.swing.JDialog jDialogTypeErr;
@@ -354,11 +406,13 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel lblColours;
     private javax.swing.JLabel lblDepth;
     private javax.swing.JLabel lblDimensions;
+    private javax.swing.JLabel lblErrorMessage;
     private javax.swing.JLabel lblGrade;
     private javax.swing.JLabel lblHeight;
     private javax.swing.JLabel lblQuantity;
     private javax.swing.JLabel lblReCo;
     private javax.swing.JLabel lblSealable;
+    private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblWidth;
     private javax.swing.JToggleButton tbtnReBo;
     private javax.swing.JToggleButton tbtnReCo;
