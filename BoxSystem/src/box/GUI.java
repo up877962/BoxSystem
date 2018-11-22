@@ -5,6 +5,8 @@
  */
 package box;
 
+import java.awt.event.ItemListener;
+
 /**
  *
  * @author up878976
@@ -76,6 +78,11 @@ public class GUI extends javax.swing.JFrame {
         jLabel1.setText("Reinforced Bottom");
 
         tbtnReBo.setText("No");
+        tbtnReBo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbtnReBoMouseClicked(evt);
+            }
+        });
         tbtnReBo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tbtnReBoActionPerformed(evt);
@@ -85,10 +92,20 @@ public class GUI extends javax.swing.JFrame {
         lblReCo.setText("Reinforced Corners");
 
         tbtnReCo.setText("No");
+        tbtnReCo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbtnReCoActionPerformed(evt);
+            }
+        });
 
         lblSealable.setText("Sealable Top");
 
         tbtnSealable.setText("No");
+        tbtnSealable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbtnSealableActionPerformed(evt);
+            }
+        });
 
         lblQuantity.setText("Quantity");
 
@@ -200,9 +217,23 @@ public class GUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tbtnReBoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbtnReBoActionPerformed
-        // TODO add your handling code here:
+        toggleYesNo(tbtnReBo);
         
     }//GEN-LAST:event_tbtnReBoActionPerformed
+    private void toggleYesNo(javax.swing.JToggleButton button ){
+        button.setText(button.getText() == "No" ? "Yes" : "No");
+    }
+    private void tbtnReBoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbtnReBoMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbtnReBoMouseClicked
+
+    private void tbtnReCoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbtnReCoActionPerformed
+        toggleYesNo(tbtnReCo);
+    }//GEN-LAST:event_tbtnReCoActionPerformed
+
+    private void tbtnSealableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbtnSealableActionPerformed
+        toggleYesNo(tbtnSealable);
+    }//GEN-LAST:event_tbtnSealableActionPerformed
 
     /**
      * @param args the command line arguments
