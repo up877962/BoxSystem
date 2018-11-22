@@ -317,7 +317,7 @@ public class GUI extends javax.swing.JFrame {
         float height = Float.parseFloat(txtHeight.getText());
         float depth = Float.parseFloat(txtDepth.getText());
         float width = Float.parseFloat(txtWidth.getText());
-        
+        boolean valid; 
         
     }//GEN-LAST:event_btnATCActionPerformed
     
