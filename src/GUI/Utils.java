@@ -66,7 +66,13 @@ public class Utils {
     public void addPlaceholderText(javax.swing.JTextField textbox, String defaultValue){
         if ("".equals(textbox.getText())) textbox.setText(defaultValue);
     }
-    
+    /**
+     * 
+     * @param textbox
+     * @param min
+     * @param max
+     * @return 
+     */
     public boolean rangeLimit(javax.swing.JTextField textbox, float min, float max) {
         if (Float.parseFloat(textbox.getText()) > max || Float.parseFloat(textbox.getText()) < min){
             textbox.setText("0.0");
@@ -74,7 +80,13 @@ public class Utils {
         } 
         return true;
     }
-    
+    /**
+     * 
+     * @param textbox
+     * @param min
+     * @param max
+     * @return 
+     */
     public boolean rangeLimit(javax.swing.JTextField textbox, int min, int max) {
         if (Integer.parseInt(textbox.getText()) > max || Integer.parseInt(textbox.getText()) < min){
             textbox.setText("0");
@@ -82,7 +94,14 @@ public class Utils {
         }
         return true;
     }
-    
+    /**
+     * 
+     * @param dialogbox
+     * @param lblTitle
+     * @param lblContent
+     * @param title
+     * @param content 
+     */
     public void warningMessage(javax.swing.JDialog dialogbox, javax.swing.JLabel lblTitle, javax.swing.JLabel lblContent, String title, String content) {
         lblTitle.setText(title);
         lblContent.setText(content);

@@ -22,9 +22,9 @@ public abstract class Box {
    protected int grade;
    
    /**
-    * 
-    * @param height
-    * @param width
+    * The constructor for the box class
+    * @param height 
+    * @param width 
     * @param depth
     * @param sealableTop
     * @param grade 
