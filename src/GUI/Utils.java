@@ -24,12 +24,14 @@ public class Utils {
      * Check to see if the text value is a float.
      * @param textbox that is wanted to be checked
      */
-    public void checkFloatType(javax.swing.JTextField textbox) {
+    public boolean checkFloatType(javax.swing.JTextField textbox) {
         try{
             Float.parseFloat(textbox.getText());            
+            return true;
         } catch (NumberFormatException err) {
             System.out.println(err);
             textbox.setText("0.0");
+            return false;
         }
     }
     
@@ -37,12 +39,14 @@ public class Utils {
      * Checks to see if the text value is a integer.
      * @param textbox that is wanted to be checked
      */
-    public void checkIntType(javax.swing.JTextField textbox) {
+    public boolean checkIntType(javax.swing.JTextField textbox) {
         try{
-            Integer.parseInt(textbox.getText());            
+            Integer.parseInt(textbox.getText());
+            return true;            
         } catch (NumberFormatException err) {
             System.out.println(err);
             textbox.setText("0");
+            return false;
         }
     }
     

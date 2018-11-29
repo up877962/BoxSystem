@@ -21,7 +21,14 @@ public abstract class Box {
    protected final float sealablePrice = 1.1f;
    protected int grade;
    
-   
+   /**
+    * 
+    * @param height
+    * @param width
+    * @param depth
+    * @param sealableTop
+    * @param grade 
+    */
    public Box(float height, float width, float depth, boolean sealableTop, int grade){
        this.height = height;
        this.width = width;
@@ -31,16 +38,36 @@ public abstract class Box {
        
 
    }
-       
+   /**
+    * 
+    * @return 
+    */    
    protected String getName(){
        return name;
    }
+   /**
+    * 
+    * @return 
+    */
    protected float getPrice(){
        return price;
    }
+   /**
+    * 
+    * @return 
+    */
    protected float calculateSurfaceArea(){
       return (float)2*height*width + 2*width*depth + 2*depth*height;
-   }   
+   }  
+   /**
+    * 
+    * @return 
+    */
    protected abstract float calculatePrice();
+   /**
+    * 
+    * @param grade
+    * @return 
+    */
    protected abstract boolean checkGrade(int grade);
 }

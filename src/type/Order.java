@@ -5,12 +5,6 @@
  */
 package type;
 
-import type.Type2;
-import type.Type4;
-import type.Type5;
-import type.Type3;
-import type.Type1;
-import type.Box;
 import java.util.ArrayList;
 
 /**
@@ -48,7 +42,7 @@ public class Order {
     }
     
     public void removeOrder(int index) {
-        System.out.println(index);
+        System.out.println(orders.size());
         orders.remove(index);
     }
     
@@ -66,5 +60,13 @@ public class Order {
     
     public float getPrice(int index) {
         return orders.get(index).calculatePrice();
+    }
+
+    public String getInvoice() {
+        String output = "";
+        for (Box order: orders) {
+            
+        }
+        return output;
     }
 }

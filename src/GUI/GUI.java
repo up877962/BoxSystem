@@ -11,7 +11,7 @@ import type.Order;
 
 /**
  *
- * @author Charlie
+ * @author up859036, up878976, up877962, up912872
  */
 public class GUI extends javax.swing.JFrame {
 
@@ -422,29 +422,38 @@ public class GUI extends javax.swing.JFrame {
 
     private void txtHeightFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtHeightFocusLost
         utils.addPlaceholderText((javax.swing.JTextField) evt.getSource(), "0.0");
-        utils.checkFloatType((javax.swing.JTextField) evt.getSource());
-        if (!utils.rangeLimit((javax.swing.JTextField) evt.getSource(), 0.01f, 6f)) {
-            // TODO: Dialog box
-            utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Height must be in the range of 0.01 to 6");
-        };
+        if (utils.checkFloatType((javax.swing.JTextField) evt.getSource())) {
+            if (!utils.rangeLimit((javax.swing.JTextField) evt.getSource(), 0.01f, 6f)) {
+                // TODO: Dialog box
+                utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Height must be in the range of 0.01 to 6");
+            };
+        } else {
+            utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Height must be a float");
+        }
     }//GEN-LAST:event_txtHeightFocusLost
 
     private void txtWidthFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtWidthFocusLost
         utils.addPlaceholderText((javax.swing.JTextField) evt.getSource(), "0.0");
-        utils.checkFloatType((javax.swing.JTextField) evt.getSource());
-        if (!utils.rangeLimit((javax.swing.JTextField) evt.getSource(), 0.01f, 6f)) {
-            // TODO: Dialog box
-            utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Width must be in the range of 0.01 to 6");
-        };
+        if (utils.checkFloatType((javax.swing.JTextField) evt.getSource())) {
+            if (!utils.rangeLimit((javax.swing.JTextField) evt.getSource(), 0.01f, 6f)) {
+                // TODO: Dialog box
+                utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Width must be in the range of 0.01 to 6");
+            };
+        } else {
+            utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Width must be a float");
+        }
     }//GEN-LAST:event_txtWidthFocusLost
 
     private void txtDepthFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDepthFocusLost
         utils.addPlaceholderText((javax.swing.JTextField) evt.getSource(), "0.0");
-        utils.checkFloatType((javax.swing.JTextField) evt.getSource());
+        if (utils.checkFloatType((javax.swing.JTextField) evt.getSource())) {
         if (!utils.rangeLimit((javax.swing.JTextField) evt.getSource(), 0.01f, 6f)) {
             // TODO: Dialog box
             utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Depth must be in the range of 0.01 to 6");
         };
+        } else {
+            utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Depth must be a float");
+        }
     }//GEN-LAST:event_txtDepthFocusLost
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
@@ -511,10 +520,13 @@ public class GUI extends javax.swing.JFrame {
 
     private void txtQuantityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtQuantityFocusLost
         utils.addPlaceholderText((javax.swing.JTextField) evt.getSource(), "0");
-        utils.checkIntType((javax.swing.JTextField) evt.getSource());
+        if (utils.checkIntType((javax.swing.JTextField) evt.getSource())) {
         if (!utils.rangeLimit((javax.swing.JTextField) evt.getSource(), 0, 10000000)) {
             utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Can't order negative of item");
         };
+        } else {
+            utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Quantity must be an Integer");
+        }
     }//GEN-LAST:event_txtQuantityFocusLost
 
     private void txtQuantityFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtQuantityFocusGained
