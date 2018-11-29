@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import java.awt.Dimension;
 import javax.swing.table.DefaultTableModel;
 import type.Order;
 
@@ -17,9 +18,9 @@ public class GUI extends javax.swing.JFrame {
     /**
      * Creates new form GUI
      */
-    
     Utils utils = new Utils();
     Order order = new Order();
+
     public GUI() {
         initComponents();
     }
@@ -37,6 +38,11 @@ public class GUI extends javax.swing.JFrame {
         lblTitle = new javax.swing.JLabel();
         lblContent = new javax.swing.JLabel();
         btnOk = new javax.swing.JButton();
+        frameComplete = new javax.swing.JFrame();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        ftxtOrder = new javax.swing.JTextArea();
+        btnComplete = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblOrders = new javax.swing.JTable();
         lblSize = new javax.swing.JLabel();
@@ -98,6 +104,56 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap(147, Short.MAX_VALUE))
         );
 
+        frameComplete.setPreferredSize(new java.awt.Dimension(500, 300));
+        frameComplete.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                frameCompleteWindowOpened(evt);
+            }
+        });
+
+        jLabel1.setText("Completed Order");
+
+        ftxtOrder.setColumns(20);
+        ftxtOrder.setRows(5);
+        ftxtOrder.setEnabled(false);
+        jScrollPane2.setViewportView(ftxtOrder);
+
+        btnComplete.setText("Complete");
+        btnComplete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCompleteActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout frameCompleteLayout = new javax.swing.GroupLayout(frameComplete.getContentPane());
+        frameComplete.getContentPane().setLayout(frameCompleteLayout);
+        frameCompleteLayout.setHorizontalGroup(
+            frameCompleteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(frameCompleteLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(frameCompleteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2)
+                    .addGroup(frameCompleteLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(frameCompleteLayout.createSequentialGroup()
+                .addGap(204, 204, 204)
+                .addComponent(btnComplete)
+                .addContainerGap(219, Short.MAX_VALUE))
+        );
+        frameCompleteLayout.setVerticalGroup(
+            frameCompleteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(frameCompleteLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(9, 9, 9)
+                .addComponent(btnComplete)
+                .addGap(8, 8, 8))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         tblOrders.setModel(new javax.swing.table.DefaultTableModel(
@@ -109,7 +165,7 @@ public class GUI extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Float.class, java.lang.Float.class, java.lang.Float.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Float.class
+                java.lang.Float.class, java.lang.Float.class, java.lang.Float.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false, false, false, false, false, false
@@ -134,6 +190,11 @@ public class GUI extends javax.swing.JFrame {
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtHeightFocusLost(evt);
+            }
+        });
+        txtHeight.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtHeightActionPerformed(evt);
             }
         });
 
@@ -331,11 +392,9 @@ public class GUI extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblReinBot)
                             .addComponent(tbtnReinBot))
-                        .addGap(18, 18, 18)
+                        .addGap(25, 25, 25)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(16, 16, 16)
-                                .addComponent(lblReinCor))
+                            .addComponent(lblReinCor)
                             .addComponent(tbtnReinCor))
                         .addGap(21, 21, 21)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -364,7 +423,7 @@ public class GUI extends javax.swing.JFrame {
     private void txtHeightFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtHeightFocusLost
         utils.addPlaceholderText((javax.swing.JTextField) evt.getSource(), "0.0");
         utils.checkFloatType((javax.swing.JTextField) evt.getSource());
-        if (!utils.rangeLimit((javax.swing.JTextField) evt.getSource(), 0.01f, 6f)){
+        if (!utils.rangeLimit((javax.swing.JTextField) evt.getSource(), 0.01f, 6f)) {
             // TODO: Dialog box
             utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Height must be in the range of 0.01 to 6");
         };
@@ -373,7 +432,7 @@ public class GUI extends javax.swing.JFrame {
     private void txtWidthFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtWidthFocusLost
         utils.addPlaceholderText((javax.swing.JTextField) evt.getSource(), "0.0");
         utils.checkFloatType((javax.swing.JTextField) evt.getSource());
-        if (!utils.rangeLimit((javax.swing.JTextField) evt.getSource(), 0.01f, 6f)){
+        if (!utils.rangeLimit((javax.swing.JTextField) evt.getSource(), 0.01f, 6f)) {
             // TODO: Dialog box
             utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Width must be in the range of 0.01 to 6");
         };
@@ -382,9 +441,9 @@ public class GUI extends javax.swing.JFrame {
     private void txtDepthFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDepthFocusLost
         utils.addPlaceholderText((javax.swing.JTextField) evt.getSource(), "0.0");
         utils.checkFloatType((javax.swing.JTextField) evt.getSource());
-        if (!utils.rangeLimit((javax.swing.JTextField) evt.getSource(), 0.01f, 6f)){
+        if (!utils.rangeLimit((javax.swing.JTextField) evt.getSource(), 0.01f, 6f)) {
             // TODO: Dialog box
-            utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Depth must be in the range of 00.1 to 6");
+            utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Depth must be in the range of 0.01 to 6");
         };
     }//GEN-LAST:event_txtDepthFocusLost
 
@@ -398,19 +457,21 @@ public class GUI extends javax.swing.JFrame {
         boolean reinforcedCorner = "Yes".equals(tbtnReinCor.getText());
         boolean sealabletop = "Yes".equals(tbtnSealTop.getText());
         int quantity = Integer.parseInt(txtQuantity.getText());
-        
-        boolean valid = order.addOrder(height, width, depth, grade, colors, reinforcedBottom, reinforcedCorner, sealabletop, quantity);
+        boolean valid = false;
+        if (!(depth == 0.0 || width == 0.0 || height == 0.0 || quantity == 0)) {
+            valid = order.addOrder(height, width, depth, grade, colors, reinforcedBottom, reinforcedCorner, sealabletop, quantity);
+        }
         System.out.println(valid);
         if (valid) {
-            Object[] row = {height, width, depth, grade, colors, reinforcedBottom, reinforcedCorner, sealabletop, quantity, order.getPrice(tblOrders.getModel().getRowCount())};
+            Object[] row = {height, width, depth, grade, colors, reinforcedBottom, reinforcedCorner, sealabletop, quantity, String.format("%.2f", order.getPrice(tblOrders.getModel().getRowCount()))};
             DefaultTableModel model = (DefaultTableModel) tblOrders.getModel();
             model.addRow(row);
-            lblPrice.setText("Total Price: " + order.calculateTotalPrice());
+            lblPrice.setText(String.format("Total Price: £%.2f", order.calculateTotalPrice()));
         } else {
             // TODO: Calculate why its not valid
-            System.out.println("Not valid");
+            utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Not a valid box");
         }
-        
+
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void txtQuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQuantityActionPerformed
@@ -419,7 +480,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void tbtnSealTopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbtnSealTopActionPerformed
         utils.toggleYesNo((javax.swing.JToggleButton) evt.getSource());
-        
+
     }//GEN-LAST:event_tbtnSealTopActionPerformed
 
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
@@ -428,9 +489,12 @@ public class GUI extends javax.swing.JFrame {
             return;
         }
         int index = tblOrders.getSelectedRow();
+        System.out.println(index);
         DefaultTableModel model = (DefaultTableModel) tblOrders.getModel();
         model.removeRow(index);
-        new Order().removeOrder(index);
+        order.removeOrder(index);
+        lblPrice.setText(String.format("Total Price: £%.2f", order.calculateTotalPrice()));
+
     }//GEN-LAST:event_btnRemoveActionPerformed
 
     private void txtHeightFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtHeightFocusGained
@@ -448,7 +512,7 @@ public class GUI extends javax.swing.JFrame {
     private void txtQuantityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtQuantityFocusLost
         utils.addPlaceholderText((javax.swing.JTextField) evt.getSource(), "0");
         utils.checkIntType((javax.swing.JTextField) evt.getSource());
-        if (!utils.rangeLimit((javax.swing.JTextField) evt.getSource(), 0, 10000000)){
+        if (!utils.rangeLimit((javax.swing.JTextField) evt.getSource(), 0, 10000000)) {
             utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Can't order negative of item");
         };
     }//GEN-LAST:event_txtQuantityFocusLost
@@ -458,15 +522,32 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_txtQuantityFocusGained
 
     private void btnCompleteOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompleteOrderActionPerformed
-        // TODO: Complete the "order"
         if (tblOrders.getModel().getRowCount() == 0) {
             utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "You have ordered nothing");
+        } else {
+            utils.warningMessage(DialogWarning, lblTitle, lblContent, "Order Complete", "You order has been completed.\nYour total price is " + lblPrice.getText());
+            frameComplete.setEnabled(true);
+            frameComplete.setVisible(true);
+            frameComplete.setSize(new Dimension(500, 500));
         }
     }//GEN-LAST:event_btnCompleteOrderActionPerformed
 
     private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
         DialogWarning.dispose();
     }//GEN-LAST:event_btnOkActionPerformed
+
+    private void frameCompleteWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_frameCompleteWindowOpened
+        ftxtOrder.setText(order.getInvoice());
+    }//GEN-LAST:event_frameCompleteWindowOpened
+
+    private void txtHeightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHeightActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtHeightActionPerformed
+
+    private void btnCompleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompleteActionPerformed
+        this.dispose();
+        System.exit(0);
+    }//GEN-LAST:event_btnCompleteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -506,12 +587,17 @@ public class GUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog DialogWarning;
     private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnComplete;
     private javax.swing.JButton btnCompleteOrder;
     private javax.swing.JButton btnOk;
     private javax.swing.JButton btnRemove;
     private javax.swing.JComboBox<String> cboxColors;
     private javax.swing.JComboBox<String> cboxGrade;
+    private javax.swing.JFrame frameComplete;
+    private javax.swing.JTextArea ftxtOrder;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblColors;
     private javax.swing.JLabel lblContent;
     private javax.swing.JLabel lblDepth;
