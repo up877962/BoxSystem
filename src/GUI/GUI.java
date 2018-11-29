@@ -6,6 +6,7 @@
 package GUI;
 
 import java.awt.Dimension;
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import type.Order;
 
@@ -413,44 +414,44 @@ public class GUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tbtnReinBotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbtnReinBotActionPerformed
-        utils.toggleYesNo((javax.swing.JToggleButton) evt.getSource());
+        utils.toggleYesNo((JToggleButton) evt.getSource());
     }//GEN-LAST:event_tbtnReinBotActionPerformed
 
     private void tbtnReinCorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbtnReinCorActionPerformed
-        utils.toggleYesNo((javax.swing.JToggleButton) evt.getSource());
+        utils.toggleYesNo((JToggleButton) evt.getSource());
     }//GEN-LAST:event_tbtnReinCorActionPerformed
 
     private void txtHeightFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtHeightFocusLost
-        utils.addPlaceholderText((javax.swing.JTextField) evt.getSource(), "0.0");
-        if (utils.checkFloatType((javax.swing.JTextField) evt.getSource())) {
-            if (!utils.rangeLimit((javax.swing.JTextField) evt.getSource(), 0.01f, 6f)) {
+        utils.addPlaceholderText((JTextField) evt.getSource(), "0.0");
+        if (utils.checkFloatType((JTextField) evt.getSource())) {
+            if (!utils.rangeLimit((JTextField) evt.getSource(), 0.01f, 6f)) {
                 // TODO: Dialog box
-                utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Height must be in the range of 0.01 to 6");
-            };
+                utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Must be in the range of 0.01 to 6");
+            }
         } else {
             utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Height must be a float");
         }
     }//GEN-LAST:event_txtHeightFocusLost
 
     private void txtWidthFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtWidthFocusLost
-        utils.addPlaceholderText((javax.swing.JTextField) evt.getSource(), "0.0");
-        if (utils.checkFloatType((javax.swing.JTextField) evt.getSource())) {
-            if (!utils.rangeLimit((javax.swing.JTextField) evt.getSource(), 0.01f, 6f)) {
+        utils.addPlaceholderText((JTextField) evt.getSource(), "0.0");
+        if (utils.checkFloatType((JTextField) evt.getSource())) {
+            if (!utils.rangeLimit((JTextField) evt.getSource(), 0.01f, 6f)) {
                 // TODO: Dialog box
-                utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Width must be in the range of 0.01 to 6");
-            };
+                utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Must be in the range of 0.01 to 6");
+            }
         } else {
             utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Width must be a float");
         }
     }//GEN-LAST:event_txtWidthFocusLost
 
     private void txtDepthFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDepthFocusLost
-        utils.addPlaceholderText((javax.swing.JTextField) evt.getSource(), "0.0");
-        if (utils.checkFloatType((javax.swing.JTextField) evt.getSource())) {
-        if (!utils.rangeLimit((javax.swing.JTextField) evt.getSource(), 0.01f, 6f)) {
+        utils.addPlaceholderText((JTextField) evt.getSource(), "0.0");
+        if (utils.checkFloatType((JTextField) evt.getSource())) {
+        if (!utils.rangeLimit((JTextField) evt.getSource(), 0.01f, 6f)) {
             // TODO: Dialog box
-            utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Depth must be in the range of 0.01 to 6");
-        };
+            utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Must be in the range of 0.01 to 6");
+        }
         } else {
             utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Depth must be a float");
         }
@@ -472,7 +473,8 @@ public class GUI extends javax.swing.JFrame {
         }
         System.out.println(valid);
         if (valid) {
-            Object[] row = {height, width, depth, grade, colors, reinforcedBottom, reinforcedCorner, sealabletop, quantity, String.format("%.2f", order.getPrice(tblOrders.getModel().getRowCount()))};
+            String priceStr = String.format("%.2f", order.getPrice(tblOrders.getModel().getRowCount()));
+            Object[] row = {height, width, depth, grade, colors, reinforcedBottom, reinforcedCorner, sealabletop, quantity, priceStr};
             DefaultTableModel model = (DefaultTableModel) tblOrders.getModel();
             model.addRow(row);
             lblPrice.setText(String.format("Total Price: £%.2f", order.calculateTotalPrice()));
@@ -484,11 +486,11 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void txtQuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQuantityActionPerformed
-        utils.checkFloatType((javax.swing.JTextField) evt.getSource());
+        utils.checkFloatType((JTextField) evt.getSource());
     }//GEN-LAST:event_txtQuantityActionPerformed
 
     private void tbtnSealTopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbtnSealTopActionPerformed
-        utils.toggleYesNo((javax.swing.JToggleButton) evt.getSource());
+        utils.toggleYesNo((JToggleButton) evt.getSource());
 
     }//GEN-LAST:event_tbtnSealTopActionPerformed
 
@@ -507,22 +509,22 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRemoveActionPerformed
 
     private void txtHeightFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtHeightFocusGained
-        utils.removePlaceholderText((javax.swing.JTextField) evt.getSource(), "0.0");
+        utils.removePlaceholderText((JTextField) evt.getSource(), "0.0");
     }//GEN-LAST:event_txtHeightFocusGained
 
     private void txtWidthFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtWidthFocusGained
-        utils.removePlaceholderText((javax.swing.JTextField) evt.getSource(), "0.0");
+        utils.removePlaceholderText((JTextField) evt.getSource(), "0.0");
     }//GEN-LAST:event_txtWidthFocusGained
 
     private void txtDepthFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDepthFocusGained
-        utils.removePlaceholderText((javax.swing.JTextField) evt.getSource(), "0.0");
+        utils.removePlaceholderText((JTextField) evt.getSource(), "0.0");
     }//GEN-LAST:event_txtDepthFocusGained
 
     private void txtQuantityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtQuantityFocusLost
-        utils.addPlaceholderText((javax.swing.JTextField) evt.getSource(), "0");
-        if (utils.checkIntType((javax.swing.JTextField) evt.getSource())) {
-        if (!utils.rangeLimit((javax.swing.JTextField) evt.getSource(), 0, 10000000)) {
-            utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Can't order negative of item");
+        utils.addPlaceholderText((JTextField) evt.getSource(), "0");
+        if (utils.checkIntType((JTextField) evt.getSource())) {
+        if (!utils.rangeLimit((JTextField) evt.getSource(), 1, 1000)) {
+            utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Can't order less than one box");
         };
         } else {
             utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Quantity must be an Integer");
@@ -530,14 +532,16 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_txtQuantityFocusLost
 
     private void txtQuantityFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtQuantityFocusGained
-        utils.removePlaceholderText((javax.swing.JTextField) evt.getSource(), "0");
+        utils.removePlaceholderText((JTextField) evt.getSource(), "0");
     }//GEN-LAST:event_txtQuantityFocusGained
 
     private void btnCompleteOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompleteOrderActionPerformed
+        
         if (tblOrders.getModel().getRowCount() == 0) {
             utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "You have ordered nothing");
         } else {
-            utils.warningMessage(DialogWarning, lblTitle, lblContent, "Order Complete", "You order has been completed.\nYour total price is " + lblPrice.getText());
+            String string = "You order has been completed.\nYour total price is " + lblPrice.getText();
+            utils.warningMessage(DialogWarning, lblTitle, lblContent, "Order Complete", string);
             frameComplete.setEnabled(true);
             frameComplete.setVisible(true);
             frameComplete.setSize(new Dimension(500, 500));

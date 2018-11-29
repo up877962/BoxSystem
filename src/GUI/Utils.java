@@ -6,6 +6,7 @@
 package GUI;
 
 import java.awt.Dimension;
+import javax.swing.*;
 
 /**
  * Utility functions for the GUI
@@ -73,7 +74,7 @@ public class Utils {
      * @param max
      * @return 
      */
-    public boolean rangeLimit(javax.swing.JTextField textbox, float min, float max) {
+    public boolean rangeLimit(JTextField textbox, float min, float max) {
         if (Float.parseFloat(textbox.getText()) > max || Float.parseFloat(textbox.getText()) < min){
             textbox.setText("0.0");
             return false;
@@ -87,7 +88,7 @@ public class Utils {
      * @param max
      * @return 
      */
-    public boolean rangeLimit(javax.swing.JTextField textbox, int min, int max) {
+    public boolean rangeLimit(JTextField textbox, int min, int max) {
         if (Integer.parseInt(textbox.getText()) > max || Integer.parseInt(textbox.getText()) < min){
             textbox.setText("0");
             return false;
@@ -102,7 +103,7 @@ public class Utils {
      * @param title
      * @param content 
      */
-    public void warningMessage(javax.swing.JDialog dialogbox, javax.swing.JLabel lblTitle, javax.swing.JLabel lblContent, String title, String content) {
+    public void warningMessage(JDialog dialogbox, JLabel lblTitle, JLabel lblContent, String title, String content) {
         lblTitle.setText(title);
         lblContent.setText(content);
         dialogbox.setTitle(title);
