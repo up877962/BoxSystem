@@ -57,20 +57,18 @@ public class GUI extends javax.swing.JFrame {
         cboxGrade = new javax.swing.JComboBox<>();
         lblColors = new javax.swing.JLabel();
         cboxColors = new javax.swing.JComboBox<>();
-        lblReinBot = new javax.swing.JLabel();
-        tbtnReinBot = new javax.swing.JToggleButton();
-        lblReinCor = new javax.swing.JLabel();
-        tbtnReinCor = new javax.swing.JToggleButton();
         txtQuantity = new javax.swing.JTextField();
         lblQuantity = new javax.swing.JLabel();
         btnAdd = new javax.swing.JButton();
         btnRemove = new javax.swing.JButton();
         lblPrice = new javax.swing.JLabel();
-        lblSealTop = new javax.swing.JLabel();
-        tbtnSealTop = new javax.swing.JToggleButton();
         btnCompleteOrder = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        chbxReinBot = new javax.swing.JCheckBox();
+        chbxReinCor = new javax.swing.JCheckBox();
+        chbxSealTop = new javax.swing.JCheckBox();
+        jLabel4 = new javax.swing.JLabel();
 
         lblTitle.setText("Warning");
 
@@ -234,24 +232,6 @@ public class GUI extends javax.swing.JFrame {
 
         cboxColors.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2" }));
 
-        lblReinBot.setText("Reinforced Bottom");
-
-        tbtnReinBot.setText("No");
-        tbtnReinBot.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tbtnReinBotActionPerformed(evt);
-            }
-        });
-
-        lblReinCor.setText("Reinforced Corner");
-
-        tbtnReinCor.setText("No");
-        tbtnReinCor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tbtnReinCorActionPerformed(evt);
-            }
-        });
-
         txtQuantity.setText("0");
         txtQuantity.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -269,7 +249,8 @@ public class GUI extends javax.swing.JFrame {
 
         lblQuantity.setText("Quantity");
 
-        btnAdd.setText("Add");
+        btnAdd.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnAdd.setText("Add Order");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
@@ -285,16 +266,8 @@ public class GUI extends javax.swing.JFrame {
 
         lblPrice.setText("Total Price");
 
-        lblSealTop.setText("Sealable Top");
-
-        tbtnSealTop.setText("No");
-        tbtnSealTop.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tbtnSealTopActionPerformed(evt);
-            }
-        });
-
-        btnCompleteOrder.setText("Complete Order");
+        btnCompleteOrder.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnCompleteOrder.setText("Complete Orders");
         btnCompleteOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCompleteOrderActionPerformed(evt);
@@ -304,141 +277,149 @@ public class GUI extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Current Orders");
 
-        jLabel3.setText("jLabel3");
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setText("Order");
+
+        chbxReinBot.setText("Reinfoced Bottom");
+        chbxReinBot.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        chbxReinBot.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+
+        chbxReinCor.setText("Reinforced Corner");
+        chbxReinCor.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        chbxReinCor.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+
+        chbxSealTop.setText("Sealable Top");
+        chbxSealTop.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        chbxSealTop.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel4.setText("Add-ons");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(lblSealTop, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(lblQuantity)
-                            .addGap(260, 260, 260))
-                        .addComponent(lblReinCor, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(lblReinBot, javax.swing.GroupLayout.Alignment.LEADING))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnAdd)
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblSize)
-                                    .addComponent(lblGrade)
-                                    .addComponent(lblColors))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblSize)
+                                            .addComponent(lblGrade)
+                                            .addComponent(lblColors))
+                                        .addGap(36, 36, 36)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(cboxGrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lblHeight)
+                                            .addComponent(txtHeight, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(cboxColors, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(lblQuantity, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(chbxReinCor)
+                                        .addComponent(chbxSealTop, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(chbxReinBot, javax.swing.GroupLayout.Alignment.TRAILING))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addGap(19, 19, 19)))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cboxGrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(2, 2, 2)
-                                        .addComponent(cboxColors, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(lblHeight)
-                                                    .addComponent(txtHeight, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(27, 27, 27)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addComponent(tbtnReinCor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(lblWidth)
-                                                    .addComponent(txtWidth, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-                                                    .addComponent(tbtnReinBot, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(tbtnSealTop, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(txtQuantity)))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel3)
-                                                .addGap(22, 22, 22)))
-                                        .addGap(52, 52, 52)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lblDepth)
-                                            .addComponent(txtDepth, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                        .addGap(18, 18, 18)))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtWidth, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lblWidth)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(22, 22, 22)))
+                        .addGap(12, 12, 12)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblDepth)
+                            .addComponent(txtDepth, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(66, 66, 66)
+                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(99, 99, 99)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnCompleteOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 741, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 644, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnCompleteOrder)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(326, 326, 326)
+                                        .addComponent(jLabel2))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(btnRemove)
                                         .addGap(18, 18, 18)
                                         .addComponent(lblPrice)))
                                 .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(326, 326, 326)
-                        .addComponent(jLabel2)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 21, Short.MAX_VALUE)
+                .addGap(0, 15, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblHeight)
-                            .addComponent(lblWidth)
-                            .addComponent(lblDepth))
+                            .addComponent(btnRemove)
+                            .addComponent(lblPrice)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblHeight)
+                                    .addComponent(lblDepth))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblSize)
+                                    .addComponent(txtHeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtDepth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblGrade)
+                                    .addComponent(cboxGrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblColors)
+                                    .addComponent(cboxColors, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblWidth)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtWidth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(chbxReinBot)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblSize)
-                            .addComponent(txtHeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtWidth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtDepth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblGrade)
-                            .addComponent(cboxGrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblColors)
-                            .addComponent(cboxColors, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblReinBot)
-                            .addComponent(tbtnReinBot))
-                        .addGap(25, 25, 25)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblReinCor)
-                            .addComponent(tbtnReinCor))
-                        .addGap(21, 21, 21)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblSealTop)
-                            .addComponent(tbtnSealTop))
-                        .addGap(18, 18, 18)
+                        .addComponent(chbxReinCor)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(chbxSealTop)
+                        .addGap(72, 72, 72)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblQuantity))
-                        .addGap(18, 18, 18)
-                        .addComponent(btnAdd)))
-                .addGap(74, 74, 74)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRemove)
-                    .addComponent(lblPrice))
-                .addGap(18, 18, 18)
-                .addComponent(btnCompleteOrder))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(21, 21, 21)
+                .addComponent(btnCompleteOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void tbtnReinBotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbtnReinBotActionPerformed
-        utils.toggleYesNo((JToggleButton) evt.getSource());
-    }//GEN-LAST:event_tbtnReinBotActionPerformed
-
-    private void tbtnReinCorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbtnReinCorActionPerformed
-        utils.toggleYesNo((JToggleButton) evt.getSource());
-    }//GEN-LAST:event_tbtnReinCorActionPerformed
 
     private void txtHeightFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtHeightFocusLost
         utils.addPlaceholderText((JTextField) evt.getSource(), "0.0");
@@ -482,12 +463,13 @@ public class GUI extends javax.swing.JFrame {
         float depth = Float.parseFloat(txtDepth.getText());
         int grade = Integer.parseInt(cboxGrade.getSelectedItem().toString());
         int colors = Integer.parseInt(cboxColors.getSelectedItem().toString());
-        boolean reinforcedBottom = "Yes".equals(tbtnReinBot.getText());
-        boolean reinforcedCorner = "Yes".equals(tbtnReinCor.getText());
-        boolean sealabletop = "Yes".equals(tbtnSealTop.getText());
+        boolean reinforcedBottom = chbxReinBot.isSelected();
+        boolean reinforcedCorner = chbxReinCor.isSelected();
+        boolean sealabletop = chbxSealTop.isSelected();
         int quantity = Integer.parseInt(txtQuantity.getText());
         boolean valid = false;
         if (!(depth == 0.0 || width == 0.0 || height == 0.0 || quantity == 0)) {
+            System.out.println("quantity before object creation" + quantity);
             valid = order.addOrder(height, width, depth, grade, colors, reinforcedBottom, reinforcedCorner, sealabletop, quantity);
         }
         System.out.println(valid);
@@ -507,11 +489,6 @@ public class GUI extends javax.swing.JFrame {
     private void txtQuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQuantityActionPerformed
         utils.checkFloatType((JTextField) evt.getSource());
     }//GEN-LAST:event_txtQuantityActionPerformed
-
-    private void tbtnSealTopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbtnSealTopActionPerformed
-        utils.toggleYesNo((JToggleButton) evt.getSource());
-
-    }//GEN-LAST:event_tbtnSealTopActionPerformed
 
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
         if (tblOrders.getModel().getRowCount() == 0) {
@@ -628,11 +605,15 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton btnRemove;
     private javax.swing.JComboBox<String> cboxColors;
     private javax.swing.JComboBox<String> cboxGrade;
+    private javax.swing.JCheckBox chbxReinBot;
+    private javax.swing.JCheckBox chbxReinCor;
+    private javax.swing.JCheckBox chbxSealTop;
     private javax.swing.JFrame frameComplete;
     private javax.swing.JTextArea ftxtOrder;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblColors;
@@ -642,16 +623,10 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel lblHeight;
     private javax.swing.JLabel lblPrice;
     private javax.swing.JLabel lblQuantity;
-    private javax.swing.JLabel lblReinBot;
-    private javax.swing.JLabel lblReinCor;
-    private javax.swing.JLabel lblSealTop;
     private javax.swing.JLabel lblSize;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblWidth;
     private javax.swing.JTable tblOrders;
-    private javax.swing.JToggleButton tbtnReinBot;
-    private javax.swing.JToggleButton tbtnReinCor;
-    private javax.swing.JToggleButton tbtnSealTop;
     private javax.swing.JTextField txtDepth;
     private javax.swing.JTextField txtHeight;
     private javax.swing.JTextField txtQuantity;

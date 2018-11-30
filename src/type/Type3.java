@@ -22,10 +22,10 @@ public class Type3 extends Box{
      * @param grade
      * @param twoColours 
      */
-    public Type3(float height, float width, float depth, boolean sealableTop, int grade, boolean twoColours) {
-        super(height, width, depth, sealableTop, grade);
+    public Type3(float height, float width, float depth, boolean sealableTop, int grade, boolean twoColours, int quantity) {
+        super(height, width, depth, sealableTop, grade, quantity);
         this.twoColours = twoColours;
-        calculatePrice();
+        price = calculatePrice();
     }
     /**
      * 
@@ -33,8 +33,9 @@ public class Type3 extends Box{
      */
     @Override
     protected float calculatePrice() {
-        price += super.calculateSurfaceArea()* super.gradePrice[grade-1] * ((boolean)twoColours?twoColoursPrice:1);
-        return price;
+        System.out.println("Quantity: " + quantity);
+        return surfaceArea* gradePrice[grade-1] * twoColoursPrice*((boolean)sealableTop? sealablePrice: 1) * quantity;
+        //return price;
     }
     /**+
      * 

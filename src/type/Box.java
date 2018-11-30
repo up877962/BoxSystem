@@ -20,6 +20,7 @@ public abstract class Box {
    protected final float[] gradePrice = {0.55f, 0.65f, 0.82f, 0.98f, 1.5f};
    protected final float sealablePrice = 1.1f;
    protected int grade;
+   protected int quantity;
    
    /**
     * The constructor for the box class
@@ -29,12 +30,15 @@ public abstract class Box {
     * @param sealableTop
     * @param grade 
     */
-   public Box(float height, float width, float depth, boolean sealableTop, int grade){
+   public Box(float height, float width, float depth, boolean sealableTop, int grade, int quantity){
        this.height = height;
        this.width = width;
        this.depth = depth;
        this.sealableTop = sealableTop; 
        this.grade = grade;
+       this.quantity = quantity;
+       surfaceArea = calculateSurfaceArea();
+       System.out.println("surface area original: " + surfaceArea);
        
 
    }
@@ -52,17 +56,21 @@ public abstract class Box {
    protected float getPrice(){
        return price;
    }
+   protected float getSurfaceArea(){
+       return surfaceArea;
+   }
    /**
     * 
     * @return 
     */
    protected float calculateSurfaceArea(){
-      return (float)2*height*width + 2*width*depth + 2*depth*height;
+//      System.out.println("height: " + height + "\nwidth: " + width + "\ndepth: " + depth + "\nSurface area 1:" + 2*(height*width + width*depth + depth*height));
+//      System.out.println("surface area 2: " + ((2*height*width) + (2*width*depth) + (2*depth*height)));
+      
+      
+      return (float)(2*height*width + 2*width*depth + 2*depth*height);
    }  
-   /**
-    * 
-    * @return 
-    */
+  
    protected abstract float calculatePrice();
    /**
     * 

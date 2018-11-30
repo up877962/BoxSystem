@@ -22,8 +22,8 @@ public class Type2 extends Box{
      * @param grade
      * @param oneColour 
      */
-    public Type2(float height, float width, float depth, boolean sealableTop, int grade, boolean oneColour) {
-        super(height, width, depth, sealableTop, grade);
+    public Type2(float height, float width, float depth, boolean sealableTop, int grade, boolean oneColour, int quantity) {
+        super(height, width, depth, sealableTop, grade, quantity);
         this.oneColour = oneColour;
         calculatePrice();
     }
@@ -33,8 +33,8 @@ public class Type2 extends Box{
      */
     @Override
     protected float calculatePrice() {
-        price += super.calculateSurfaceArea()* super.gradePrice[grade-1] * oneColourPrice;
-        return price;
+        return super.calculateSurfaceArea()*gradePrice[grade-1] * oneColourPrice*((boolean)sealableTop? sealablePrice: 1)* quantity;
+        
     }
     /**
      * 

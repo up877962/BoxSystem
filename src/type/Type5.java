@@ -24,10 +24,10 @@ public class Type5 extends Type4{
      * @param bottomReinforced
      * @param cornerReinforced 
      */
-    public Type5(float height, float width, float depth, boolean sealableTop, int grade, boolean twoColours, boolean bottomReinforced, boolean cornerReinforced) {
-        super(height, width, depth, sealableTop, grade, twoColours, cornerReinforced);
+    public Type5(float height, float width, float depth, boolean sealableTop, int grade, boolean twoColours, boolean bottomReinforced, boolean cornerReinforced, int quantity) {
+        super(height, width, depth, sealableTop, grade, twoColours, cornerReinforced, quantity);
         this.cornerReinforced = cornerReinforced;
-        calculatePrice();
+        price = calculatePrice();
     }
     /**
      * 
@@ -35,8 +35,8 @@ public class Type5 extends Type4{
      */
     @Override//TODO: Need to check for reinforced options
     protected float calculatePrice() {
-        price += super.calculatePrice()*((boolean)cornerReinforced? reinforcedCPrice: 1);
-        return price;
+        return super.calculatePrice()*reinforcedCPrice;
+ 
     }
     /**
      * 

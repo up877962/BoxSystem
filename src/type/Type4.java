@@ -23,10 +23,10 @@ public class Type4 extends Type3{
      * @param twoColours
      * @param bottomReinforced 
      */
-    public Type4(float height, float width, float depth, boolean sealableTop, int grade, boolean twoColours, boolean bottomReinforced) {
-        super(height, width, depth, sealableTop,grade, twoColours);
+    public Type4(float height, float width, float depth, boolean sealableTop, int grade, boolean twoColours, boolean bottomReinforced, int quantity) {
+        super(height, width, depth, sealableTop,grade, twoColours, quantity);
         this.bottomReinforced = bottomReinforced;
-        calculatePrice();
+        price = calculatePrice();
     }
 
     /**
@@ -35,8 +35,7 @@ public class Type4 extends Type3{
      */
     @Override
     protected float calculatePrice() {
-        price += super.calculatePrice() * ((boolean)bottomReinforced? reinforcedBPrice: 1);
-        return price;
+        return super.calculatePrice() * reinforcedBPrice;
     }
     /**
      * 

@@ -11,6 +11,7 @@ package type;
  */
 public class Type1 extends Box {
     private final String name = "Type 1";
+    private final float sealablePrice = 1.1f;
     
     /**
      * 
@@ -20,9 +21,9 @@ public class Type1 extends Box {
      * @param sealableTop
      * @param grade 
      */
-    public Type1(float height, float width, float depth, boolean sealableTop, int grade) {
-        super(height, width, depth, sealableTop, grade);
-        calculatePrice();
+    public Type1(float height, float width, float depth, boolean sealableTop, int grade, int quantity) {
+        super(height, width, depth, sealableTop, grade, quantity);
+        price = calculatePrice();
     }
     /**
      * 
@@ -30,8 +31,7 @@ public class Type1 extends Box {
      */
     @Override
     protected float calculatePrice() {
-        price += super.calculateSurfaceArea()* super.gradePrice[grade-1];
-        return price;
+        return super.calculateSurfaceArea()* gradePrice[grade-1]*((boolean)sealableTop? sealablePrice: 1)* quantity;
     }
     /**
      * 
