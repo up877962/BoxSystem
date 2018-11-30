@@ -13,7 +13,6 @@ import java.util.ArrayList;
  */
 public class Order {
     public float totalPrice;
-    public float quantity;
     private ArrayList<Box> orders = new ArrayList<>();
     
     public boolean addOrder(float height, float width, float depth,int grade, int colors, boolean reinforcedBottom, boolean reinforcedCorner, boolean sealabletop, int quantity) {

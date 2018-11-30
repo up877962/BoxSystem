@@ -29,6 +29,7 @@ public abstract class Box {
     * @param depth
     * @param sealableTop
     * @param grade 
+    * @param quantity 
     */
    public Box(float height, float width, float depth, boolean sealableTop, int grade, int quantity){
        this.height = height;
@@ -63,12 +64,8 @@ public abstract class Box {
     * 
     * @return 
     */
-   protected float calculateSurfaceArea(){
-//      System.out.println("height: " + height + "\nwidth: " + width + "\ndepth: " + depth + "\nSurface area 1:" + 2*(height*width + width*depth + depth*height));
-//      System.out.println("surface area 2: " + ((2*height*width) + (2*width*depth) + (2*depth*height)));
-      
-      
-      return (float)(2*height*width + 2*width*depth + 2*depth*height);
+   private float calculateSurfaceArea(){
+       return (float)(2*height*width + 2*width*depth + 2*depth*height);
    }  
   
    protected abstract float calculatePrice();

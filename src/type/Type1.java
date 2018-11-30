@@ -31,7 +31,7 @@ public class Type1 extends Box {
      */
     @Override
     protected float calculatePrice() {
-        return super.calculateSurfaceArea()* gradePrice[grade-1]*((boolean)sealableTop? sealablePrice: 1)* quantity;
+        return surfaceArea * gradePrice[grade-1]*((boolean)sealableTop? sealablePrice: 1)* quantity;
     }
     /**
      * 

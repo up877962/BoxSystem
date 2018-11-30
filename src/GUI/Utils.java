@@ -17,13 +17,11 @@ public class Utils {
      * Toggles the text of the button between yes and no.
      * @param button that is wanted to be toggled
      */
-//    public void toggleYesNo(javax.swing.JToggleButton button ){
-//        button.setText(button.getText() == "No" ? "Yes" : "No");
-//    }
     
     /**
      * Check to see if the text value is a float.
      * @param textbox that is wanted to be checked
+     * @return 
      */
     public boolean checkFloatType(javax.swing.JTextField textbox) {
         try{
@@ -39,6 +37,7 @@ public class Utils {
     /**
      * Checks to see if the text value is a integer.
      * @param textbox that is wanted to be checked
+     * @return 
      */
     public boolean checkIntType(javax.swing.JTextField textbox) {
         try{
