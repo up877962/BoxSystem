@@ -155,6 +155,7 @@ public class GUI extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Box System");
 
         tblOrders.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -364,7 +365,7 @@ public class GUI extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addContainerGap(14, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
@@ -415,7 +416,7 @@ public class GUI extends javax.swing.JFrame {
                         .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(21, 21, 21)
                 .addComponent(btnCompleteOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
+                .addContainerGap())
         );
 
         pack();
@@ -478,7 +479,9 @@ public class GUI extends javax.swing.JFrame {
             Object[] row = {height, width, depth, grade, colors, reinforcedBottom, reinforcedCorner, sealabletop, quantity, priceStr};
             DefaultTableModel model = (DefaultTableModel) tblOrders.getModel();
             model.addRow(row);
-            lblPrice.setText(String.format("Total Price: £%.2f", order.calculateTotalPrice()));
+            String price = String.format("£%.2f", order.calculateTotalPrice());
+            lblPrice.setText("Total Price: " + price);
+            this.setTitle("Box System - Orders " + order.getTotalOrders() + " - Price " + price);
         } else {
             // TODO: Calculate why its not valid
             utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Not a valid box");
@@ -495,12 +498,18 @@ public class GUI extends javax.swing.JFrame {
             utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "You can't remove nothing");
             return;
         }
+        try{
         int index = tblOrders.getSelectedRow();
         System.out.println(index);
         DefaultTableModel model = (DefaultTableModel) tblOrders.getModel();
         model.removeRow(index);
         order.removeOrder(index);
-        lblPrice.setText(String.format("Total Price: £%.2f", order.calculateTotalPrice()));
+        String price = String.format("£%.2f", order.calculateTotalPrice());
+        lblPrice.setText("Total Price: " + price);
+        this.setTitle("Box System - Orders " + order.getTotalOrders() + " - Price " + price);
+        } catch(ArrayIndexOutOfBoundsException err) {
+            utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "You can't remove nothing");
+        }
 
     }//GEN-LAST:event_btnRemoveActionPerformed
 

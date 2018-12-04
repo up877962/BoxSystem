@@ -71,4 +71,8 @@ public class Order {
         }
         return output;
     }
+    
+    public int getTotalOrders() {
+        return orders.size();
+    }
 }
