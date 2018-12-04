@@ -491,7 +491,7 @@ public class GUI extends javax.swing.JFrame {
             chbxReinBot.setSelected(false);
             chbxReinCor.setSelected(false);
             chbxSealTop.setSelected(false);
-            txtQuantity.setText("0.0");
+            txtQuantity.setText("0");
         } else {
             // TODO: Calculate why its not valid
             utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Not a valid box");
