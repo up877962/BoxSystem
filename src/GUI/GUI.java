@@ -470,10 +470,8 @@ public class GUI extends javax.swing.JFrame {
         int quantity = Integer.parseInt(txtQuantity.getText());
         boolean valid = false;
         if (!(depth == 0.0 || width == 0.0 || height == 0.0 || quantity == 0)) {
-            System.out.println("quantity before object creation" + quantity);
             valid = order.addOrder(height, width, depth, grade, colors, reinforcedBottom, reinforcedCorner, sealabletop, quantity);
         }
-        System.out.println(valid);
         if (valid) {
             String priceStr = String.format("%.2f", order.getPrice(tblOrders.getModel().getRowCount()));
             Object[] row = {height, width, depth, grade, colors, reinforcedBottom, reinforcedCorner, sealabletop, quantity, priceStr};
@@ -510,7 +508,6 @@ public class GUI extends javax.swing.JFrame {
         }
         try{
         int index = tblOrders.getSelectedRow();
-        System.out.println(index);
         DefaultTableModel model = (DefaultTableModel) tblOrders.getModel();
         model.removeRow(index);
         order.removeOrder(index);
@@ -568,7 +565,7 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnOkActionPerformed
 
     private void frameCompleteWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_frameCompleteWindowOpened
-        ftxtOrder.setText(order.getInvoice());
+        
     }//GEN-LAST:event_frameCompleteWindowOpened
 
     private void txtHeightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHeightActionPerformed

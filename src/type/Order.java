@@ -18,30 +18,24 @@ public class Order {
     public boolean addOrder(float height, float width, float depth,int grade, int colors, boolean reinforcedBottom, boolean reinforcedCorner, boolean sealabletop, int quantity) {
         if((grade >=3 && grade<=5) && colors == 2 && reinforcedBottom && reinforcedCorner ){
             orders.add(new Type5(height, width, depth, sealabletop, grade, (colors == 2) , reinforcedBottom, reinforcedCorner, quantity));
-            System.out.println("Type5 Complete");
             return true;
         } else if( (grade >= 2 && grade <=5) && colors == 2 && reinforcedBottom && !reinforcedCorner){
             orders.add(new Type4(height, width, depth, sealabletop, grade, (colors == 2) , reinforcedBottom, quantity));
-            System.out.println("Type4 Complete");
             return true;
         } else if ( (grade >= 2 && grade <= 5) && colors == 2 && !reinforcedBottom && !reinforcedCorner) {
             orders.add(new Type3(height, width, depth, sealabletop, grade, (colors == 2), quantity));
-            System.out.println("Type3 Complete");
             return true;
         } else if ( (grade >= 2 && grade <= 4) && colors == 1 && !reinforcedBottom && !reinforcedCorner) {
             orders.add(new Type2(height, width, depth, sealabletop, grade, (colors == 1), quantity));
-            System.out.println("Type2 Complete");
             return true;
         } else if ((grade >= 1 && grade <= 3) && colors == 0 && !reinforcedBottom && !reinforcedCorner){
             orders.add(new Type1(height, width, depth, sealabletop, grade, quantity));
-            System.out.println("Type1 Complete");
             return true;
         }
         return false;
     }
     
     public void removeOrder(int index) {
-        System.out.println(orders.size());
         orders.remove(index);
     }
     
@@ -63,13 +57,6 @@ public class Order {
     }
     public float getTotalPrice(){
         return totalPrice;
-    }
-    public String getInvoice() {
-        String output = "";
-        for (Box order: orders) {
-            
-        }
-        return output;
     }
     
     public int getTotalOrders() {
