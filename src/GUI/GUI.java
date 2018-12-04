@@ -482,6 +482,16 @@ public class GUI extends javax.swing.JFrame {
             String price = String.format("£%.2f", order.calculateTotalPrice());
             lblPrice.setText("Total Price: " + price);
             this.setTitle("Box System - Orders " + order.getTotalOrders() + " - Price " + price);
+            
+            txtWidth.setText("0.0");
+            txtHeight.setText("0.0");
+            txtWidth.setText("0.0");
+            cboxGrade.setSelectedIndex(0);
+            cboxColors.setSelectedIndex(0);
+            chbxReinBot.setSelected(false);
+            chbxReinCor.setSelected(false);
+            chbxSealTop.setSelected(false);
+            txtQuantity.setText("0.0");
         } else {
             // TODO: Calculate why its not valid
             utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Not a valid box");
