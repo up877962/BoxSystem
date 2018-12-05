@@ -6,7 +6,6 @@ package type;
  */
 public class Type1 extends Box {
     private final String name = "Type 1";
-    private final float sealablePrice = 1.1f;
     
     
     public Type1(float height, float width, float depth, boolean sealableTop, int grade, int quantity) {
@@ -19,7 +18,8 @@ public class Type1 extends Box {
      */
     @Override
     protected float calculatePrice() {
-        return surfaceArea * gradePrice[grade-1]*((boolean)sealableTop? sealablePrice: 1)* quantity;
+        float basicPrice = surfaceArea * gradePrice[grade-1];
+        return (basicPrice +((boolean)sealableTop? (basicPrice*sealablePrice): 0))* quantity;
     }
     /**
      * Checks whether the grade is within the valid range for the box

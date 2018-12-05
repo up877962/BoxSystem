@@ -13,7 +13,7 @@ public abstract class Box {
    protected float price;
    protected String name;
    protected final float[] gradePrice = {0.55f, 0.65f, 0.82f, 0.98f, 1.5f};
-   protected final float sealablePrice = 1.1f;
+   protected final float sealablePrice = 0.1f;
    protected int grade;
    protected int quantity;
    

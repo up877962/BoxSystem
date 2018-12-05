@@ -5,7 +5,7 @@ package type;
  * @author up859036, up878976, up877962, up912872
  */
 public class Type5 extends Type4{
-    private final float reinforcedCPrice = 1.12f;
+    private final float reinforcedCPrice = 0.12f;
     private final String name = "Type 5";
     private boolean cornerReinforced;
     /**
@@ -30,7 +30,8 @@ public class Type5 extends Type4{
      */
     @Override
     protected float calculatePrice() {
-        return super.calculatePrice()*reinforcedCPrice;
+        float basicPrice = surfaceArea*gradePrice[grade-1];
+        return super.calculatePrice()+(basicPrice*reinforcedCPrice);
  
     }
     /**

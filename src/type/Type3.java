@@ -5,7 +5,7 @@ package type;
  * @author up859036, up878976, up877962, up912872
  */
 public class Type3 extends Box{
-    protected final float twoColoursPrice = 1.15f;
+    protected final float twoColoursPrice = 0.15f;
     private final String name = "Type 3";
     protected boolean twoColours;
    
@@ -20,7 +20,8 @@ public class Type3 extends Box{
      */
     @Override
     protected float calculatePrice() {
-        return surfaceArea* gradePrice[grade-1] * twoColoursPrice*((boolean)sealableTop? sealablePrice: 1) * quantity;
+        float basicPrice = surfaceArea*gradePrice[grade-1];
+        return (basicPrice + (basicPrice * twoColoursPrice) + ((boolean)sealableTop? (basicPrice * sealablePrice): 0)) * quantity;
         //return price;
     }
     /**+

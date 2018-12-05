@@ -5,7 +5,7 @@ package type;
  * @author up859036, up878976, up877962, up912872
  */
 public class Type4 extends Type3{
-    protected final float reinforcedBPrice = 1.13f;
+    protected final float reinforcedBPrice = 0.13f;
     private final String name = "Type 4";
     protected boolean bottomReinforced;
     /**
@@ -30,7 +30,8 @@ public class Type4 extends Type3{
      */
     @Override
     protected float calculatePrice() {
-        return super.calculatePrice() * reinforcedBPrice;
+        float basicPrice = surfaceArea*gradePrice[grade-1];
+        return super.calculatePrice() + (basicPrice * reinforcedBPrice);
     }
     /**
      * 
