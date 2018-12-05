@@ -478,7 +478,7 @@ public class GUI extends javax.swing.JFrame {
             
             txtWidth.setText("0.0");
             txtHeight.setText("0.0");
-            txtWidth.setText("0.0");
+            txtDepth.setText("0.0");
             cboxGrade.setSelectedIndex(0);
             cboxColors.setSelectedIndex(0);
             chbxReinBot.setSelected(false);
@@ -532,7 +532,7 @@ public class GUI extends javax.swing.JFrame {
         if (utils.checkIntType((JTextField) evt.getSource())) {
         if (!utils.rangeLimit((JTextField) evt.getSource(), 1, 1000)) {
             utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Can't order less than one box");
-        };
+        }
         } else {
             utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Quantity must be an Integer");
         }
