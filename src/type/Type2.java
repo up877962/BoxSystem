@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package type;
 
 /**
@@ -13,15 +8,7 @@ public class Type2 extends Box{
     private final float oneColourPrice = 1.12f;
     private final String name = "Type 2";
     private boolean oneColour;
-    /**
-     * 
-     * @param height
-     * @param width
-     * @param depth
-     * @param sealableTop
-     * @param grade
-     * @param oneColour 
-     */
+    
     public Type2(float height, float width, float depth, boolean sealableTop, int grade, boolean oneColour, int quantity) {
         super(height, width, depth, sealableTop, grade, quantity);
         this.oneColour = oneColour;

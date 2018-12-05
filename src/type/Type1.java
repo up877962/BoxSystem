@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package type;
 
 /**
@@ -13,20 +8,13 @@ public class Type1 extends Box {
     private final String name = "Type 1";
     private final float sealablePrice = 1.1f;
     
-    /**
-     * 
-     * @param height
-     * @param width
-     * @param depth
-     * @param sealableTop
-     * @param grade 
-     */
+    
     public Type1(float height, float width, float depth, boolean sealableTop, int grade, int quantity) {
         super(height, width, depth, sealableTop, grade, quantity);
         price = calculatePrice();
     }
     /**
-     * 
+     * Calculates the price of the box
      * @return 
      */
     @Override
@@ -34,7 +22,7 @@ public class Type1 extends Box {
         return surfaceArea * gradePrice[grade-1]*((boolean)sealableTop? sealablePrice: 1)* quantity;
     }
     /**
-     * 
+     * Checks whether the grade is within the valid range for the box
      * @param grade
      * @return 
      */

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package GUI;
 
 import java.awt.Dimension;
@@ -21,7 +16,7 @@ public class Utils {
     /**
      * Check to see if the text value is a float.
      * @param textbox that is wanted to be checked
-     * @return 
+     * @return boolean
      */
     public boolean checkFloatType(javax.swing.JTextField textbox) {
         try{
@@ -37,7 +32,7 @@ public class Utils {
     /**
      * Checks to see if the text value is a integer.
      * @param textbox that is wanted to be checked
-     * @return 
+     * @return boolean
      */
     public boolean checkIntType(javax.swing.JTextField textbox) {
         try{
@@ -67,11 +62,11 @@ public class Utils {
         if ("".equals(textbox.getText())) textbox.setText(defaultValue);
     }
     /**
-     * 
-     * @param textbox
-     * @param min
-     * @param max
-     * @return 
+     * Checks whether the float value in the in the text box is within the specified range
+     * @param textbox to check  
+     * @param min - minimum value
+     * @param max - maximum value
+     * @return boolean
      */
     public boolean rangeLimit(JTextField textbox, float min, float max) {
         if (Float.parseFloat(textbox.getText()) > max || Float.parseFloat(textbox.getText()) < min){
@@ -81,11 +76,11 @@ public class Utils {
         return true;
     }
     /**
-     * 
-     * @param textbox
-     * @param min
-     * @param max
-     * @return 
+     * Checks whether the integer value in the text box is within the specified range
+     * @param textbox to check  
+     * @param min - minimum value
+     * @param max - maximum value
+     * @return boolean
      */
     public boolean rangeLimit(JTextField textbox, int min, int max) {
         if (Integer.parseInt(textbox.getText()) > max || Integer.parseInt(textbox.getText()) < min){
@@ -95,12 +90,12 @@ public class Utils {
         return true;
     }
     /**
-     * 
-     * @param dialogbox
-     * @param lblTitle
-     * @param lblContent
-     * @param title
-     * @param content 
+     * Produces a dialog box pop-up with warning message
+     * @param dialogbox the dialog box to pop up
+     * @param lblTitle label to display title
+     * @param lblContent label to display content
+     * @param title the title of the message
+     * @param content the message to display
      */
     public void warningMessage(JDialog dialogbox, JLabel lblTitle, JLabel lblContent, String title, String content) {
         lblTitle.setText(title);

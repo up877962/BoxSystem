@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package type;
 
 /**
@@ -38,21 +33,18 @@ public abstract class Box {
        this.sealableTop = sealableTop; 
        this.grade = grade;
        this.quantity = quantity;
-       surfaceArea = calculateSurfaceArea();
-       System.out.println("surface area original: " + surfaceArea);
-       
-
+       surfaceArea = calculateSurfaceArea();     
    }
    /**
     * 
-    * @return 
+    * @return name
     */    
    protected String getName(){
        return name;
    }
    /**
     * 
-    * @return 
+    * @return price
     */
    protected float getPrice(){
        return price;
@@ -62,17 +54,13 @@ public abstract class Box {
    }
    /**
     * 
-    * @return 
+    * @return surface area of the box
     */
    private float calculateSurfaceArea(){
        return (float)(2*height*width + 2*width*depth + 2*depth*height);
-   }  
-  
+   }   
+
    protected abstract float calculatePrice();
-   /**
-    * 
-    * @param grade
-    * @return 
-    */
+
    protected abstract boolean checkGrade(int grade);
 }

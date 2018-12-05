@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package GUI;
 
 import java.awt.Dimension;
@@ -500,7 +495,7 @@ public class GUI extends javax.swing.JFrame {
     private void txtQuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQuantityActionPerformed
         utils.checkFloatType((JTextField) evt.getSource());
     }//GEN-LAST:event_txtQuantityActionPerformed
-
+    
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
         if (tblOrders.getModel().getRowCount() == 0) {
             utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "You can't remove nothing");

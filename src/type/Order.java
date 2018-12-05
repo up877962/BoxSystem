@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package type;
 
 import java.util.ArrayList;
@@ -34,11 +29,17 @@ public class Order {
         }
         return false;
     }
-    
+    /**
+     * Method to remove an order from the orders list
+     * @param index of order to be removed
+     */
     public void removeOrder(int index) {
         orders.remove(index);
     }
-    
+    /**
+     * Calculates the total price of all orders
+     * @return the total price
+     */
     public float calculateTotalPrice() {
         float price = 0f;
         for(Box order: orders) {
@@ -47,18 +48,33 @@ public class Order {
         totalPrice = price;
         return price;
     }
-    
+    /**
+     * Gets order at specified index of orders list
+     * @param index of order in list
+     * @return order
+     */
     public Box getOrder(int index) {
     return orders.get(index);
     }
-    
+    /**
+     * Gets the price of an order in orders list
+     * @param index of order in list
+     * @return price of order at specified index
+     */
     public float getPrice(int index) {
         return orders.get(index).getPrice();
     }
+    /**
+     * 
+     * @return totalPrice
+     */
     public float getTotalPrice(){
         return totalPrice;
     }
-    
+    /**
+     * 
+     * @return the number of orders in list 
+     */
     public int getTotalOrders() {
         return orders.size();
     }
