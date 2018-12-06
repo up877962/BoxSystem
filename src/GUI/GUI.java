@@ -421,11 +421,10 @@ public class GUI extends javax.swing.JFrame {
         utils.addPlaceholderText((JTextField) evt.getSource(), "0.0");
         if (utils.checkFloatType((JTextField) evt.getSource())) {
             if (!utils.rangeLimit((JTextField) evt.getSource(), 0.01f, 6f)) {
-                // TODO: Dialog box
-                utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Must be in the range of 0.01 to 6");
+                utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Input must be in the range of 0.01m to 6m");
             }
         } else {
-            utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Height must be a float");
+            utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Incorrect data type - must be a number (float)");
         }
     }//GEN-LAST:event_txtHeightFocusLost
 
@@ -433,11 +432,10 @@ public class GUI extends javax.swing.JFrame {
         utils.addPlaceholderText((JTextField) evt.getSource(), "0.0");
         if (utils.checkFloatType((JTextField) evt.getSource())) {
             if (!utils.rangeLimit((JTextField) evt.getSource(), 0.01f, 6f)) {
-                // TODO: Dialog box
                 utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Must be in the range of 0.01 to 6");
             }
         } else {
-            utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Width must be a float");
+            utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Incorrect data type - must be a number (float)");
         }
     }//GEN-LAST:event_txtWidthFocusLost
 
@@ -445,11 +443,10 @@ public class GUI extends javax.swing.JFrame {
         utils.addPlaceholderText((JTextField) evt.getSource(), "0.0");
         if (utils.checkFloatType((JTextField) evt.getSource())) {
         if (!utils.rangeLimit((JTextField) evt.getSource(), 0.01f, 6f)) {
-            // TODO: Dialog box
             utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Must be in the range of 0.01 to 6");
         }
         } else {
-            utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Depth must be a float");
+            utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Incorrect data type - must be a number (float)");
         }
     }//GEN-LAST:event_txtDepthFocusLost
 
@@ -486,7 +483,6 @@ public class GUI extends javax.swing.JFrame {
             chbxSealTop.setSelected(false);
             txtQuantity.setText("0");
         } else {
-            // TODO: Calculate why its not valid
             utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Not a valid box");
         }
 
@@ -498,7 +494,7 @@ public class GUI extends javax.swing.JFrame {
     
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
         if (tblOrders.getModel().getRowCount() == 0) {
-            utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "You can't remove nothing");
+            utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "You must select a box to remove");
             return;
         }
         try{
@@ -510,7 +506,7 @@ public class GUI extends javax.swing.JFrame {
         lblPrice.setText("Total Price: " + price);
         this.setTitle("Box System - Orders " + order.getTotalOrders() + " - Price " + price);
         } catch(ArrayIndexOutOfBoundsException err) {
-            utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "You can't remove nothing");
+            utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "You must select a box to remove");
         }
 
     }//GEN-LAST:event_btnRemoveActionPerformed
@@ -531,7 +527,7 @@ public class GUI extends javax.swing.JFrame {
         utils.addPlaceholderText((JTextField) evt.getSource(), "0");
         if (utils.checkIntType((JTextField) evt.getSource())) {
         if (!utils.rangeLimit((JTextField) evt.getSource(), 1, 1000)) {
-            utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Can't order less than one box");
+            utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Must order at least one box");
         }
         } else {
             utils.warningMessage(DialogWarning, lblTitle, lblContent, "Warning", "Quantity must be an Integer");
